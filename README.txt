@@ -1,8 +1,10 @@
 .CSV files may not be downloaded. They will be generated starting the program.
--------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
 dash_main.py contains the dash app.
 api_requests.py contains the data extraction functions.
--------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+To update the graph below inside the dashboard click into a location dot on the map to show forecast.
+------------------------------------------------------------------------------------------------------
 API used in this project: 
   For pm2.5, pm10, no2, o3 map:
   https://docs.openaq.org/docs/introduction 
