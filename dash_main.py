@@ -43,12 +43,13 @@ app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 # create the layout of the app
 app.layout = html.Div([
-    # navbar with only the black top banner and the title
+    # navbar with only the top b banner and the title
     dbc.NavbarSimple(
         brand="World Air Quality Map",
         brand_href="#",
         color="Black",
         dark=True,
+        style={'fontFamily': 'Stencil Std, fantasy'}
     ),
     # map graph
     dcc.Graph(id='air-quality-map', style={"margin-bottom": "0px"}),
@@ -56,11 +57,11 @@ app.layout = html.Div([
         dbc.Container(
             # map selectors buttons
             dbc.ButtonGroup([
-                dbc.Button("AQI", id="btn-aqi", n_clicks=0, color="primary", outline=True, style={'borderColor': 'white','borderRadius': '0', 'color': 'white'}),
-                dbc.Button("PM 2.5", id="btn-pm25", n_clicks=0, color="primary", outline=True, style={'borderColor': 'white','borderRadius': '0', 'color': 'white'}),
-                dbc.Button("PM 10", id="btn-pm10", n_clicks=0, color="primary", outline=True, style={'borderColor': 'white','borderRadius': '0', 'color': 'white'}),
-                dbc.Button("NO2", id="btn-no2", n_clicks=0, color="primary", outline=True, style={'borderColor': 'white','borderRadius': '0', 'color': 'white'}),
-                dbc.Button("O3", id="btn-o3", n_clicks=0, color="primary", outline=True, style={'borderColor': 'white','borderRadius': '0', 'color': 'white'}),
+                dbc.Button("AQI", id="btn-aqi", n_clicks=0, color="primary", outline=True, style={'borderColor': 'white','borderRadius': '0', 'color': 'white','fontFamily': 'FreeMono, monospace','fontWeight' : 'bold'}),
+                dbc.Button("PM 2.5", id="btn-pm25", n_clicks=0, color="primary", outline=True, style={'borderColor': 'white','borderRadius': '0', 'color': 'white','fontFamily': 'FreeMono, monospace','fontWeight' : 'bold'}),
+                dbc.Button("PM 10", id="btn-pm10", n_clicks=0, color="primary", outline=True, style={'borderColor': 'white','borderRadius': '0', 'color': 'white','fontFamily': 'FreeMono, monospace','fontWeight' : 'bold'}),
+                dbc.Button("NO2", id="btn-no2", n_clicks=0, color="primary", outline=True, style={'borderColor': 'white','borderRadius': '0', 'color': 'white','fontFamily': 'FreeMono, monospace','fontWeight' : 'bold'}),
+                dbc.Button("O3", id="btn-o3", n_clicks=0, color="primary", outline=True, style={'borderColor': 'white','borderRadius': '0', 'color': 'white','fontFamily': 'FreeMono, monospace','fontWeight' : 'bold'}),
             ], className="d-flex justify-content-center")
         ),
          style={"background-color": "black", "padding":"10px"}
@@ -77,7 +78,7 @@ app.layout = html.Div([
                 ],
                 value='PM25',
                 clearable=False,
-                style={'width': '50%', 'margin': '20px auto'}
+                style={'width': '50%', 'margin': '20px auto','fontFamily': 'FreeMono, monospace','fontWeight' : 'bold'}
             ),
         ),
          style={"background-color": "black", "padding":"10px"}
@@ -190,6 +191,7 @@ def update_graph(n_clicks_aqi, n_clicks_pm25, n_clicks_pm10, n_clicks_no2, n_cli
                             mapbox_style="streets",
                             height=850, 
                             size_max=7, zoom=1.6, center={"lat": 25, "lon": 15})
+    
     # customize map style
     fig.update_layout(
      margin=dict(r=0,b=0,t=0),
